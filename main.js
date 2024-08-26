@@ -30,11 +30,12 @@ received is an even number.
 HINT: Use the modulo operator (%) Google it! 😊
 ******************************************************************************/
 
-export const oddOrEven = () => {
-  let result;
-  if ( % 2 === 1) 
-  result = "Odd";
-return result;
+export const oddOrEven = (n) => {
+  if (n % 2 === 1) {
+  return "Odd";
+  } else { 
+    return "Even";
+  }
 };
 
 /******************************************************************************
@@ -49,8 +50,8 @@ Example: "This is cool" should return "THIS IS COOL!"
 
 ******************************************************************************/
 
-export function makeMeLoud() {
-  //your code here
+export function makeMeLoud(text) {
+  return text.toUpperCase() + "!";
 }
 
 /******************************************************************************
@@ -74,8 +75,23 @@ The function should return:
 
 ******************************************************************************/
 
-export const greeter = () => {
-  //your code here
+export const greeter = (string, number) => {
+  if (number < 0 || number > 23) { 
+    return "Invalid time"}
+    else {
+      if (number < 6) {
+        return "Good night" + " " + string;  
+      }  
+      if (number > 5 && number < 12) {
+        return "Good morning" + " " + string;
+      }
+      if (number > 11 && number < 18) {
+        return "Good day" + " " + string;
+      }
+      if (number > 17 && number < 24) {
+        return "Good evening" + " " + string;
+      }
+  }    
 };
 
 /******************************************************************************
