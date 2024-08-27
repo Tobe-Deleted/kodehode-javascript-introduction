@@ -108,8 +108,8 @@ Example 2: ["One", "Two", "Three", "Four", "Five", "Six"] should return
 ["Two", "Three", "Four", "Five"]
 ******************************************************************************/
 
-export function arrayTrimmer() {
-  //your code here
+export function arrayTrimmer(array) {
+  return array.slice(1,-1);
 }
 
 /******************************************************************************
@@ -131,8 +131,8 @@ Example3: "   hard        " should return "fun"
 
 ******************************************************************************/
 
-export const cleanAndFun = () => {
-  //your code here
+export const cleanAndFun = (stringParameter) => {
+  return stringParameter.replace("hard", "fun").trim()
 };
 
 /******************************************************************************
@@ -155,8 +155,12 @@ Use array methods to do the following:
  Return the resulting array.
 ******************************************************************************/
 
-export function marvelEditor() {
-  //your code here
+export function marvelEditor(arrayParameter) {
+  
+  let newArray = arrayParameter.slice(1);
+  newArray.splice(2,1, "Skrull");
+  newArray.splice(0,2, "Captain America");
+  return newArray.toString().replaceAll(",", "💪");
 }
 
 /******************************************************************************
@@ -186,8 +190,22 @@ Return "😎Primitive values only😎"
 
 ******************************************************************************/
 
-export function coolMaker() {
-  //your code here
+export function coolMaker(variable) {
+  if ( typeof variable == "string"){
+    return `😎${variable}😎`
+  } else if ( typeof variable == "number") {
+    variable = variable * 2;
+    return `😎${variable}😎`
+  } else if (typeof variable == "boolean") {
+    if (variable){
+      return "😎Yeah😎"
+    } else {
+      return "😎Chill😎"
+    }
+  } else {
+    return "😎Primitive values only😎"
+  }
+  
 }
 
 /******************************************************************************
@@ -213,6 +231,13 @@ Example3: (["One", "Two", "Three"], "Four") --> ["One", "Two", "Three", "Four"]
 Example4: (["One", "Two", "Three"], "Two") --> ["One", "Three"]
 ******************************************************************************/
 
-export const addOrRemove = () => {
-  //your code here
+export const addOrRemove = (array, string) => {
+  const index = array.indexOf(string)
+  if ( index > -1) {
+   array.splice(index, 1);
+   return array;
+  } else { 
+    array.push(string);
+    return array;
+  }
 };
